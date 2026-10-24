@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Christiano Cidade | Advocacia Previdenciária</title>
+  <meta name="description" content="Christiano Cidade, advogado OAB/PR 67.512. Atuação em Direito Previdenciário: revisão de benefício e aposentadoria negada pelo INSS." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy: #1B2A4A;
+      --petrol: #2E5266;
+      --clay: #D97757;
+      --paper: #F4F2ED;
+      --ink: #33363A;
+      --panel: #EAE6DD;
+      --line: #D9D3C7;
+      --muted: #5E636B;
+      --white: #FFFFFF;
+      --serif: "PT Serif", Georgia, serif;
+      --sans: "Manrope", system-ui, sans-serif;
+      --radius: 16px;
+      --wrap: 1200px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 12%, rgba(255,255,255,.8), transparent 30%),
+        radial-gradient(circle at 85% 8%, rgba(46,82,102,.08), transparent 34%),
+        var(--paper);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 400; color: var(--navy); margin: 0; letter-spacing: -0.01em; }
+    p { margin: 0; }
+
+    .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+    section { padding: 96px 0; scroll-margin-top: 80px; }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--petrol);
+    }
+    .rule { width: 56px; height: 2px; background: var(--clay); margin: 28px 0; border: 0; }
+    .section-title { font-size: clamp(32px, 4.4vw, 52px); line-height: 1.08; }
+    .lead { font-size: 19px; color: var(--ink); max-width: 38em; }
+    .muted { color: var(--muted); }
+    .center { text-align: center; }
+    .center .rule, .center .lead { margin-left: auto; margin-right: auto; }
+
+    .icon { width: 24px; height: 24px; flex-shrink: 0; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Botões */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      height: 56px; padding: 0 28px; border-radius: 12px;
+      font: 600 16px/1 var(--sans); text-decoration: none; cursor: pointer;
+      transition: transform .2s, background .2s, border-color .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--navy); color: var(--white); box-shadow: 0 20px 44px rgba(27,42,74,.22); }
+    .btn-primary:hover { background: #24375F; }
+    .btn-ghost { background: transparent; color: var(--navy); border: 1px solid var(--line); }
+    .btn-ghost:hover { border-color: var(--petrol); background: rgba(255,255,255,.5); }
+    .btn-light { background: var(--paper); color: var(--navy); }
+    .btn-sm { height: 44px; padding: 0 18px; font-size: 14px; border-radius: 10px; }
+
+    /* Painéis */
+    .panel {
+      background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+      box-shadow: 0 24px 60px rgba(27,42,74,.10), inset 0 1px 0 rgba(255,255,255,.7);
+    }
+    .glass {
+      background: rgba(244,242,237,.78);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(217,211,199,.9);
+    }
+
+    /* Cabeçalho */
+    .header { position: fixed; inset: 0 0 auto; z-index: 50; border-bottom: 1px solid rgba(217,211,199,.9); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 76px; }
+    .brand { text-decoration: none; line-height: 1.1; }
+    .brand strong { display: block; font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--navy); }
+    .brand span { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--petrol); }
+    .nav-links { display: flex; gap: 32px; font-size: 15px; font-weight: 500; }
+    .nav-links a { text-decoration: none; color: var(--ink); transition: color .2s; }
+    .nav-links a:hover { color: var(--petrol); }
+    .menu-btn { display: none; background: none; border: 0; padding: 8px; color: var(--navy); cursor: pointer; }
+    .mobile-menu { display: none; }
+
+    /* Hero */
+    .hero { padding: 160px 0 96px; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; }
+    .hero h1 { font-size: clamp(40px, 5.6vw, 68px); line-height: 1.02; }
+    .hero .lead { margin-top: 0; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; }
+    .hero-id { display: flex; align-items: center; gap: 28px; margin-top: 48px; }
+    .hero-id small { display: block; font-size: 12px; font-weight: 500; color: var(--muted); }
+    .hero-id b { font-size: 18px; font-weight: 700; color: var(--navy); }
+    .vr { width: 1px; height: 40px; background: var(--line); }
+
+    .hero-visual {
+      position: relative; min-height: 560px; border-radius: 20px; overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 15%, rgba(217,119,87,.28), transparent 40%),
+        linear-gradient(155deg, var(--petrol), var(--navy) 70%);
+      display: flex; align-items: flex-end; padding: 32px;
+      box-shadow: 0 32px 70px rgba(27,42,74,.28);
+    }
+    .hero-visual::before {
+      content: ""; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, #000, transparent 75%);
+    }
+    .photo-slot {
+      position: absolute; top: 32px; left: 32px; right: 32px;
+      font-size: 13px; color: rgba(255,255,255,.55); letter-spacing: .04em;
+    }
+    .case-card { position: relative; width: 100%; max-width: 400px; padding: 28px; }
+    .case-card h3 { font-size: 22px; margin-bottom: 18px; }
+    .check-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .check-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; font-weight: 500; }
+    .check-list .icon { color: var(--petrol); width: 20px; height: 20px; margin-top: 3px; }
+    .float-note {
+      position: absolute; top: 96px; right: 32px; width: 220px; padding: 18px; border-radius: 14px;
+      background: var(--navy); color: var(--paper); border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 20px 44px rgba(0,0,0,.25);
+    }
+    .float-note b { display: block; font-family: var(--serif); font-size: 30px; font-weight: 400; color: var(--clay); line-height: 1; }
+    .float-note span { font-size: 13px; line-height: 1.45; display: block; margin-top: 8px; }
+
+    /* Por que previdenciário */
+    .band { background: rgba(234,230,221,.45); border-block: 1px solid var(--line); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .quote {
+      margin-top: 40px; padding: 32px; border-radius: var(--radius);
+      background: var(--navy); color: var(--paper); max-width: 480px;
+    }
+    .quote .mark { font-family: var(--serif); font-size: 56px; line-height: .6; color: var(--clay); display: block; }
+    .quote p { font-family: var(--serif); font-size: 21px; line-height: 1.45; margin-top: 12px; }
+    .quote small { display: block; margin-top: 16px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: #C9CFD9; }
+    .feature-list { display: grid; gap: 20px; }
+    .feature { display: flex; gap: 20px; padding: 24px; transition: transform .25s; }
+    .feature:hover { transform: translateY(-3px); }
+    .icon-badge {
+      width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; flex-shrink: 0;
+      background: var(--paper); border: 1px solid var(--line); color: var(--petrol);
+    }
+    .feature h3 { font-family: var(--sans); font-size: 18px; font-weight: 700; }
+    .feature p { margin-top: 6px; font-size: 15px; color: var(--muted); }
+
+    /* Áreas */
+    .areas { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 56px; }
+    .area { padding: 40px; display: flex; flex-direction: column; }
+    .area h3 { font-size: 30px; margin: 20px 0 12px; }
+    .area > p { color: var(--muted); }
+    .area ul { list-style: none; padding: 0; margin: 28px 0 0; border-top: 1px solid var(--line); }
+    .area li { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px; font-weight: 500; }
+    .area li .icon { width: 20px; height: 20px; color: var(--petrol); margin-top: 2px; }
+
+    /* Como funciona */
+    .steps { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 64px; }
+    .steps::before {
+      content: ""; position: absolute; top: 48px; left: 12%; right: 12%;
+      border-top: 2px dashed var(--line);
+    }
+    .step { position: relative; text-align: center; }
+    .step-circle {
+      width: 96px; height: 96px; margin: 0 auto 24px; border-radius: 50%;
+      display: grid; place-items: center; color: var(--navy); position: relative;
+    }
+    .step-circle .icon { width: 36px; height: 36px; }
+    .step-num {
+      position: absolute; top: -4px; right: -4px; width: 30px; height: 30px; border-radius: 50%;
+      background: var(--navy); color: var(--clay); font: 700 14px/30px var(--sans);
+    }
+    .step h3 { font-family: var(--sans); font-size: 18px; font-weight: 700; }
+    .step p { margin: 10px auto 0; font-size: 15px; color: var(--muted); max-width: 16em; }
+    .notice {
+      display: flex; gap: 14px; align-items: flex-start; max-width: 760px; margin: 56px auto 0;
+      padding: 20px 24px; border-radius: 12px; background: rgba(46,82,102,.07); border: 1px solid rgba(46,82,102,.2);
+      font-size: 15px;
+    }
+    .notice .icon { color: var(--petrol); }
+
+    /* Sobre */
+    .about-photo {
+      aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; position: relative;
+      background: linear-gradient(160deg, #DCD6CA, #C9C2B4);
+      display: grid; place-items: center; color: var(--muted); font-size: 14px; text-align: center;
+      box-shadow: 0 28px 60px rgba(27,42,74,.18);
+    }
+    .about-photo .tag {
+      position: absolute; left: 20px; bottom: 20px; right: 20px; padding: 18px 20px; border-radius: 12px;
+      background: rgba(27,42,74,.92); color: var(--paper); text-align: left;
+    }
+    .about-photo .tag b { font-family: var(--serif); font-size: 20px; font-weight: 400; display: block; }
+    .about-photo .tag span { font-size: 13px; color: var(--clay); font-weight: 600; }
+    .about-text p + p { margin-top: 18px; }
+
+    /* Conteúdo educativo (seção escura) */
+    .dark { background: var(--navy); color: #E7E9EE; }
+    .dark h2, .dark h3 { color: var(--paper); }
+    .dark .eyebrow { color: var(--clay); }
+    .dark .lead { color: #C9CFD9; }
+    .edu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 56px; }
+    .edu {
+      padding: 32px; border-radius: var(--radius);
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.12);
+      transition: background .25s, transform .25s;
+    }
+    .edu:hover { background: rgba(255,255,255,.07); transform: translateY(-3px); }
+    .edu .kicker { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--clay); }
+    .edu h3 { font-size: 26px; margin: 12px 0 12px; }
+    .edu p { color: #C9CFD9; font-size: 16px; }
+
+    /* Dúvidas */
+    .faq { max-width: 820px; margin: 56px auto 0; }
+    .faq details { border-bottom: 1px solid var(--line); }
+    .faq details:first-child { border-top: 1px solid var(--line); }
+    .faq summary {
+      list-style: none; cursor: pointer; padding: 24px 0; display: flex; justify-content: space-between; gap: 24px;
+      font-family: var(--serif); font-size: 21px; color: var(--navy);
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; font-family: var(--sans); font-size: 26px; line-height: 1; color: var(--petrol); transition: transform .2s; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq details p { padding: 0 0 24px; color: var(--muted); max-width: 44em; }
+
+    /* Contato */
+    .contact-card { padding: 64px 48px; text-align: center; max-width: 860px; margin: 0 auto; }
+    .contact-card .hero-ctas { justify-content: center; }
+    .contact-info {
+      display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 48px; padding-top: 32px;
+      border-top: 1px solid var(--line); text-align: left;
+    }
+    .contact-info div { padding: 0 20px; }
+    .contact-info div + div { border-left: 1px solid var(--line); }
+    .contact-info small { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+    .contact-info small .icon { width: 16px; height: 16px; color: var(--petrol); }
+    .contact-info b { display: block; margin-top: 4px; font-size: 15px; color: var(--navy); }
+
+    /* Rodapé */
+    .footer { border-top: 1px solid var(--line); padding: 64px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--line); }
+    .footer h4 { margin: 0 0 16px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--petrol); }
+    .footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 15px; }
+    .footer ul a { text-decoration: none; }
+    .footer ul a:hover { color: var(--petrol); }
+    .footer .legal { padding-top: 28px; display: grid; gap: 10px; font-size: 13px; color: var(--muted); }
+
+    /* WhatsApp flutuante */
+    .wa-float {
+      position: fixed; right: 20px; bottom: 20px; z-index: 40;
+      width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--navy); color: var(--white); box-shadow: 0 12px 30px rgba(27,42,74,.35);
+      transition: transform .2s;
+    }
+    .wa-float:hover { transform: scale(1.06); }
+
+    /* Animação ao rolar (só ativa com JS) */
+    .js .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1); }
+    .js .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* Responsivo */
+    @media (max-width: 960px) {
+      section { padding: 72px 0; }
+      .nav-links, .header .btn { display: none; }
+      .menu-btn { display: block; }
+      .mobile-menu.open { display: grid; gap: 4px; padding: 8px 24px 24px; }
+      .mobile-menu a { padding: 12px 0; text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--line); }
+      .mobile-menu .btn { margin-top: 12px; border-bottom: 0; }
+      .hero { padding: 120px 0 72px; }
+      .hero-grid, .two-col, .areas { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { min-height: 460px; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .steps::before { display: none; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .about-photo { max-width: 420px; }
+    }
+    @media (max-width: 600px) {
+      .wrap { padding: 0 16px; }
+      body { font-size: 16px; }
+      .lead { font-size: 17px; }
+      .btn { width: 100%; }
+      .hero-visual { flex-direction: column; align-items: stretch; justify-content: flex-end; gap: 16px; padding: 56px 16px 16px; min-height: 0; }
+      .float-note { position: relative; top: auto; right: auto; width: auto; }
+      .photo-slot { top: 16px; left: 16px; }
+      .area, .contact-card { padding: 32px 20px; }
+      .steps { grid-template-columns: 1fr; }
+      .contact-info { grid-template-columns: 1fr; gap: 20px; }
+      .contact-info div { padding: 0; }
+      .contact-info div + div { border-left: 0; }
+      .faq summary { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Ícones (SVG reutilizáveis) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.8 2.8L16 10"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.5 3 8.5 7 10 4-1.5 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7V3Z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></symbol>
+    <symbol id="i-path" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.5 6H15a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h6.5"/></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 4v16M7 20h10M5 7h14"/><path d="m5 7-3 7h6L5 7ZM19 7l-3 7h6l-3-7Z"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.5-4.5L4 8"/><path d="M4 4v4h4M4 13a8 8 0 0 0 14.5 4.5L20 16"/><path d="M20 20v-4h-4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.2-3.8A8 8 0 1 1 8 19l-4 1Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2L9 9.5Z"/></symbol>
+  </svg>
+
+  <!-- Cabeçalho -->
+  <header class="header glass">
+    <div class="wrap nav">
+      <a href="#" class="brand" aria-label="Início">
+        <strong>Christiano Cidade</strong>
+        <span>Advocacia Previdenciária</span>
+      </a>
+      <nav class="nav-links" aria-label="Principal">
+        <a href="#atuacao">Atuação</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#conteudo">Seus direitos</a>
+        <a href="#duvidas">Dúvidas</a>
+      </nav>
+      <a class="btn btn-primary btn-sm" href="https://wa.me/5543991204613" target="_blank" rel="noopener">
+        <svg class="icon"><use href="#i-wa"/></svg> Fale pelo WhatsApp
+      </a>
+      <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
+        <svg class="icon" style="width:28px;height:28px"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-menu" id="menu-mobile" aria-label="Menu móvel">
+      <a href="#atuacao">Atuação</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#conteudo">Seus direitos</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a class="btn btn-primary" href="https://wa.me/5543991204613" target="_blank" rel="noopener">Fale pelo WhatsApp</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <span class="eyebrow"><svg class="icon" style="width:18px;height:18px"><use href="#i-shield"/></svg> Direito Previdenciário</span>
+          <h1 style="margin-top:24px">Seu benefício foi negado pelo INSS? Entenda seus direitos.</h1>
+          <hr class="rule" />
+          <p class="lead">Atuo com foco em Direito Previdenciário, ajudando segurados a entender o que aconteceu com o seu pedido e quais caminhos existem junto ao INSS.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="https://wa.me/5543991204613" target="_blank" rel="noopener">
+              <svg class="icon"><use href="#i-wa"/></svg> Conversar pelo WhatsApp
+            </a>
+            <a class="btn btn-ghost" href="#como-funciona">Como funciona o atendimento</a>
+          </div>
+          <div class="hero-id">
+            <div><small>Advogado</small><b>OAB/PR 67.512</b></div>
+            <div class="vr"></div>
+            <div><small>Áreas</small><b>Revisão · Aposentadoria negada</b></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <span class="photo-slot">[ espaço para foto profissional / imagem do escritório ]</span>
+          <div class="float-note">
+            <b>30 dias</b>
+            <span>é o prazo, em regra, para recorrer de uma decisão do INSS, contado da ciência da decisão.</span>
+          </div>
+          <div class="case-card panel">
+            <h3>O que é analisado no seu caso</h3>
+            <ul class="check-list">
+              <li><svg class="icon"><use href="#i-check"/></svg> Carta de indeferimento e motivo da negativa</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Extrato do CNIS e vínculos registrados</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Tempo de contribuição e carência</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Cálculo do benefício já concedido</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Por que previdenciário -->
+    <section class="band" id="por-que">
+      <div class="wrap two-col">
+        <div class="reveal">
+          <span class="eyebrow">Por que Direito Previdenciário</span>
+          <h2 class="section-title" style="margin-top:20px">Muitos benefícios negados têm erros que podem ser corrigidos.</h2>
+          <p class="lead" style="margin-top:24px">Uma negativa do INSS nem sempre é o fim do caminho. Vínculos que não aparecem no CNIS, períodos não reconhecidos ou cálculos equivocados são situações frequentes. É sobre isso que eu trabalho.</p>
+          <div class="quote">
+            <span class="mark">“</span>
+            <p>É comum receber segurados que acreditavam não ter mais nenhuma saída após a negativa do INSS. Muitas vezes existe, sim, um caminho.</p>
+            <small>— Christiano Cidade</small>
+          </div>
+        </div>
+        <div class="feature-list reveal">
+          <div class="feature panel">
+            <div class="icon-badge"><svg class="icon"><use href="#i-search"/></svg></div>
+            <div>
+              <h3>Análise individual</h3>
+              <p>Cada caso é estudado a partir dos seus documentos e do histórico junto ao INSS.</p>
+            </div>
+          </div>
+          <div class="feature panel">
+            <div class="icon-badge"><svg class="icon"><use href="#i-chat"/></svg></div>
+            <div>
+              <h3>Linguagem clara</h3>
+              <p>Explico cada etapa sem juridiquês, para que você entenda sua situação.</p>
+            </div>
+          </div>
+          <div class="feature panel">
+            <div class="icon-badge"><svg class="icon"><use href="#i-path"/></svg></div>
+            <div>
+              <h3>Acompanhamento próximo</h3>
+              <p>Você sabe em que fase está o seu pedido, do início ao fim.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Áreas de atuação -->
+    <section id="atuacao">
+      <div class="wrap">
+        <div class="center reveal">
+          <span class="eyebrow">Áreas de atuação</span>
+          <h2 class="section-title" style="margin-top:20px">Onde posso ajudar</h2>
+        </div>
+        <div class="areas">
+          <article class="area panel reveal">
+            <div class="icon-badge"><svg class="icon"><use href="#i-refresh"/></svg></div>
+            <h3>Revisão de benefício</h3>
+            <p>Quando um benefício já concedido pode ter sido calculado de forma incorreta e pode ser recalculado.</p>
+            <ul>
+              <li><svg class="icon"><use href="#i-check"/></svg> Conferência do cálculo da renda mensal</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Períodos ou salários não considerados</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Verificação dos prazos para revisar</li>
+            </ul>
+          </article>
+          <article class="area panel reveal">
+            <div class="icon-badge"><svg class="icon"><use href="#i-scale"/></svg></div>
+            <h3>Aposentadoria negada</h3>
+            <p>Entendimento do motivo do indeferimento e dos caminhos possíveis, administrativos ou judiciais.</p>
+            <ul>
+              <li><svg class="icon"><use href="#i-check"/></svg> Análise da carta de indeferimento</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Tempo de contribuição e carência</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Recurso administrativo ou ação judicial</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section class="band" id="como-funciona">
+      <div class="wrap">
+        <div class="center reveal">
+          <span class="eyebrow">Como funciona o atendimento</span>
+          <h2 class="section-title" style="margin-top:20px">Um processo simples e transparente</h2>
+        </div>
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-circle panel"><svg class="icon"><use href="#i-chat"/></svg><span class="step-num">1</span></div>
+            <h3>Primeiro contato</h3>
+            <p>Você conta sua situação pelo WhatsApp e tira as primeiras dúvidas.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-circle panel"><svg class="icon"><use href="#i-search"/></svg><span class="step-num">2</span></div>
+            <h3>Análise do caso</h3>
+            <p>Estudo dos documentos e do histórico junto ao INSS.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-circle panel"><svg class="icon"><use href="#i-doc"/></svg><span class="step-num">3</span></div>
+            <h3>Documentação</h3>
+            <p>Organização do que for necessário para o pedido ou recurso.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-circle panel"><svg class="icon"><use href="#i-path"/></svg><span class="step-num">4</span></div>
+            <h3>Acompanhamento</h3>
+            <p>Atualizações sobre cada fase, até a conclusão.</p>
+          </div>
+        </div>
+        <p class="notice reveal">
+          <svg class="icon"><use href="#i-info"/></svg>
+          <span>Cada caso depende de análise individual. Não há promessa ou garantia de resultado.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre">
+      <div class="wrap two-col">
+        <div class="about-photo reveal">
+          <span>[ foto profissional ]</span>
+          <div class="tag">
+            <b>Christiano Cidade</b>
+            <span>OAB/PR 67.512</span>
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <span class="eyebrow">Sobre</span>
+          <h2 class="section-title" style="margin-top:20px">Quem sou eu</h2>
+          <hr class="rule" />
+          <p class="lead">Sou Christiano Cidade, advogado inscrito na OAB/PR sob o nº 67.512. Atuo com foco em Direito Previdenciário, ajudando segurados a entender seus direitos junto ao INSS.</p>
+          <p class="muted">[ Espaço para formação, especializações e trajetória profissional. ]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conteúdo educativo -->
+    <section class="dark" id="conteudo">
+      <div class="wrap">
+        <div class="center reveal">
+          <span class="eyebrow">Direitos do segurado</span>
+          <h2 class="section-title" style="margin-top:20px">Informação para você decidir melhor</h2>
+          <p class="lead" style="margin-top:20px">Conteúdo educativo sobre situações comuns junto ao INSS.</p>
+        </div>
+        <div class="edu-grid">
+          <article class="edu reveal">
+            <span class="kicker">Revisão</span>
+            <h3>O que é revisão de benefício?</h3>
+            <p>É o pedido para recalcular um benefício já concedido quando há indícios de erro, por exemplo, salários ou períodos que não foram considerados no cálculo.</p>
+          </article>
+          <article class="edu reveal">
+            <span class="kicker">Indeferimento</span>
+            <h3>Por que uma aposentadoria é negada?</h3>
+            <p>Os motivos mais comuns são tempo de contribuição insuficiente, carência não cumprida ou vínculos que não aparecem corretamente no CNIS.</p>
+          </article>
+          <article class="edu reveal">
+            <span class="kicker">Prazos</span>
+            <h3>Existe prazo para recorrer?</h3>
+            <p>Sim. Em regra, o recurso administrativo deve ser apresentado em até 30 dias a partir da ciência da decisão. Perder o prazo pode limitar as opções.</p>
+          </article>
+          <article class="edu reveal">
+            <span class="kicker">Documentos</span>
+            <h3>O que todo segurado deveria guardar</h3>
+            <p>Extrato do CNIS, carteiras de trabalho, carnês e comprovantes de contribuição, holerites e todas as cartas e decisões recebidas do INSS.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dúvidas frequentes -->
+    <section id="duvidas">
+      <div class="wrap">
+        <div class="center reveal">
+          <span class="eyebrow">Dúvidas frequentes</span>
+          <h2 class="section-title" style="margin-top:20px">Perguntas comuns</h2>
+        </div>
+        <div class="faq reveal">
+          <details>
+            <summary>Quais documentos devo separar para a primeira conversa?</summary>
+            <p>O ideal é ter em mãos a carta de indeferimento (se houver), o extrato do CNIS, as carteiras de trabalho e documentos pessoais. Se não tiver tudo, não tem problema: a gente organiza juntos.</p>
+          </details>
+          <details>
+            <summary>Como consigo o extrato do CNIS?</summary>
+            <p>Pelo aplicativo ou site Meu INSS, na opção “Extrato de Contribuição (CNIS)”, usando sua conta gov.br.</p>
+          </details>
+          <details>
+            <summary>O atendimento é presencial ou online?</summary>
+            <p>[ A definir: presencial, online ou ambos. ]</p>
+          </details>
+          <details>
+            <summary>Como são definidos os honorários?</summary>
+            <p>Os honorários são combinados de forma transparente após a análise do caso, por meio de contrato escrito, observando a tabela da OAB/PR.</p>
+          </details>
+          <details>
+            <summary>Este escritório tem ligação com o INSS?</summary>
+            <p>Não. Este é um escritório de advocacia privado, sem qualquer vínculo com o INSS ou com órgãos do governo.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="band" id="contato">
+      <div class="wrap">
+        <div class="contact-card panel reveal">
+          <span class="eyebrow">Contato</span>
+          <h2 class="section-title" style="margin-top:20px">Quer entender melhor seus direitos junto ao INSS?</h2>
+          <hr class="rule" style="margin-left:auto;margin-right:auto" />
+          <p class="lead" style="margin:0 auto">Envie uma mensagem pelo WhatsApp e conte sua situação.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="https://wa.me/5543991204613" target="_blank" rel="noopener">
+              <svg class="icon"><use href="#i-wa"/></svg> Enviar mensagem
+            </a>
+          </div>
+          <div class="contact-info">
+            <div><small><svg class="icon"><use href="#i-wa"/></svg> WhatsApp</small><b>(43) 99120-4613</b></div>
+            <div><small><svg class="icon"><use href="#i-mail"/></svg> E-mail</small><b>[ e-mail do escritório ]</b></div>
+            <div><small><svg class="icon"><use href="#i-pin"/></svg> Endereço</small><b>[ endereço / cidade ]</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a href="#" class="brand">
+            <strong>Christiano Cidade</strong>
+            <span>Advocacia Previdenciária</span>
+          </a>
+          <p class="muted" style="margin-top:16px;font-size:15px">OAB/PR 67.512</p>
+        </div>
+        <div>
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#atuacao">Áreas de atuação</a></li>
+            <li><a href="#como-funciona">Como funciona</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#duvidas">Dúvidas frequentes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Aviso de Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="legal">
+        <p>Conteúdo de caráter exclusivamente informativo, nos termos do Provimento nº 205/2021 do Conselho Federal da OAB.</p>
+        <p>Escritório de advocacia privado, sem vínculo com o INSS ou órgãos governamentais.</p>
+        <p>© 2026 Christiano Cidade — Advocacia Previdenciária.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/5543991204613" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+    <svg class="icon" style="width:28px;height:28px"><use href="#i-wa"/></svg>
+  </a>
+
+  <script>
+    // Menu móvel
+    (function () {
+      var btn = document.querySelector('.menu-btn');
+      var menu = document.getElementById('menu-mobile');
+      btn.addEventListener('click', function () {
+        var open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+      });
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+
+    // Animação ao rolar (os elementos ficam visíveis se o JS não carregar)
+    (function () {
+      if (!('IntersectionObserver' in window)) return;
+      document.documentElement.classList.add('js');
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>

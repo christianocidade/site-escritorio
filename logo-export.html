@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Manrope:wght@500;600&display=swap" rel="stylesheet">
+<title>Logo Export — Christiano Cidade Advocacia</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: #EAE6DD;
+    padding: 40px 24px;
+    color: #33363A;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #1B2A4A;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #5E636B;
+    margin-bottom: 40px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 6px;
+    border: 1px solid #D9D3C7;
+    padding: 32px;
+    margin-bottom: 32px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #5E636B;
+    margin-bottom: 24px;
+  }
+  .preview-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 40px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+  }
+  .preview-light { background: #fff; border: 1px solid #EAE6DD; }
+  .preview-dark  { background: #1B2A4A; }
+
+  /* ── Logo Conceito B — empilhado com linha ── */
+  .logo-b {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .mono {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: #1B2A4A;
+  }
+  .mono .a { color: #D97757; }
+
+  .mono-dark { color: #F4F2ED; }
+  .mono-dark .a { color: #D97757; }
+
+  .thin-line {
+    width: 100%;
+    height: 1px;
+    background: #D97757;
+    margin: 2px 0 8px;
+  }
+  .thin-line-dark {
+    background: #D97757;
+  }
+
+  .name {
+    font-family: 'Manrope', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #1B2A4A;
+    text-align: center;
+  }
+  .name-dark { color: #F4F2ED; }
+
+  /* Botões */
+  .btn-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .btn:hover { opacity: 0.82; }
+  .btn-png { background: #1B2A4A; color: #F4F2ED; }
+  .btn-jpg { background: #D97757; color: #fff; }
+</style>
+</head>
+<body>
+
+<h1>Christiano Cidade Advocacia</h1>
+<p class="subtitle">Exportar logo — Conceito B · CCA com linha</p>
+
+<!-- POSITIVO -->
+<div class="card">
+  <div class="card-label">Versão Positivo — fundo claro</div>
+  <div class="preview-area preview-light" id="canvas-positivo">
+    <div class="logo-b" id="logo-positivo">
+      <div class="mono"><span>CC</span><span class="a">A</span></div>
+      <div class="thin-line"></div>
+      <div class="name">Christiano Cidade Advocacia</div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-png" onclick="exportLogo('positivo','png')">↓ Download PNG</button>
+    <button class="btn btn-jpg" onclick="exportLogo('positivo','jpg')">↓ Download JPG</button>
+  </div>
+</div>
+
+<!-- NEGATIVO -->
+<div class="card">
+  <div class="card-label">Versão Negativo — fundo escuro (navy)</div>
+  <div class="preview-area preview-dark" id="canvas-negativo">
+    <div class="logo-b" id="logo-negativo">
+      <div class="mono mono-dark"><span>CC</span><span class="a">A</span></div>
+      <div class="thin-line thin-line-dark"></div>
+      <div class="name name-dark">Christiano Cidade Advocacia</div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-png" onclick="exportLogo('negativo','png')">↓ Download PNG</button>
+    <button class="btn btn-jpg" onclick="exportLogo('negativo','jpg')">↓ Download JPG</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script>
+async function exportLogo(versao, formato) {
+  const el = document.getElementById('canvas-' + versao);
+  const scale = 4;
+  const canvas = await html2canvas(el, {
+    scale: scale,
+    useCORS: true,
+    backgroundColor: versao === 'negativo' ? '#1B2A4A' : (formato === 'png' ? null : '#ffffff'),
+    logging: false
+  });
+  const mimeType = formato === 'png' ? 'image/png' : 'image/jpeg';
+  const quality  = formato === 'jpg' ? 0.97 : undefined;
+  const dataUrl  = canvas.toDataURL(mimeType, quality);
+  const a = document.createElement('a');
+  a.href = dataUrl;
+  a.download = `logo-cca-${versao}.${formato}`;
+  a.click();
+}
+</script>
+</body>
+</html>
