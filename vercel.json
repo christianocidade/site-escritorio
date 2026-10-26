@@ -1,0 +1,27 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/index-ptserif", "destination": "/", "permanent": true },
+    { "source": "/revisao-contratos", "destination": "/revisao-de-contrato-bancario", "permanent": true },
+    { "source": "/busca-apreensao", "destination": "/defesa-busca-e-apreensao", "permanent": true },
+    { "source": "/indicacao-condutor", "destination": "/indicacao-de-condutor", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }]
+    },
+    {
+      "source": "/logo-export",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}
