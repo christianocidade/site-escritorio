@@ -14,6 +14,9 @@ const NAME = 'Christiano Cidade Advocacia';
 const OAB = 'OAB/PR 67.512';
 const PHONE = '+55-43-99120-4613';
 const WA = 'https://wa.me/5543991204613';
+const ADDR = { street: 'Rua Mato Grosso, 1412, apto 53', district: 'Centro', city: 'Londrina', state: 'PR', cep: '86010-180' };
+const ADDRESS = `${ADDR.street} · ${ADDR.city}/${ADDR.state} · CEP ${ADDR.cep}`;
+const MAPS = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${ADDR.street}, ${ADDR.city} - ${ADDR.state}, ${ADDR.cep}`)}`;
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const wa = (msg) => `${WA}?text=${encodeURIComponent(msg)}`;
@@ -33,9 +36,14 @@ const ORG = {
   logo: `${SITE}/assets/img/logo.png`,
   image: `${SITE}/assets/img/og.jpg`,
   telephone: PHONE,
+  address: {
+    '@type': 'PostalAddress', streetAddress: ADDR.street, addressLocality: ADDR.city,
+    addressRegion: ADDR.state, postalCode: ADDR.cep, addressCountry: 'BR',
+  },
+  hasMap: MAPS,
   priceRange: '$$',
   description: 'Advocacia em Direito Bancário: revisão de contratos bancários e de financiamento de veículos, defesa em ação de busca e apreensão e indicação de condutor.',
-  areaServed: { '@type': 'Country', name: 'Brasil' },
+  areaServed: [{ '@type': 'City', name: 'Londrina' }, { '@type': 'Country', name: 'Brasil' }],
   availableLanguage: 'pt-BR',
   founder: { '@id': `${SITE}/#christiano` },
   knowsAbout: ['Direito Bancário', 'Revisão de contrato bancário', 'Juros abusivos', 'Busca e apreensão de veículo', 'Indicação de condutor'],
@@ -46,6 +54,7 @@ const PERSON = {
   name: 'Christiano Cidade',
   jobTitle: 'Advogado',
   identifier: OAB,
+  image: `${SITE}/assets/img/christiano-cidade.jpg`,
   worksFor: { '@id': `${SITE}/#escritorio` },
   url: `${SITE}/#sobre`,
 };
@@ -87,7 +96,7 @@ const footer = `<footer class="footer">
             <span class="brand-mono" aria-hidden="true">CC<span>A</span></span>
             <span class="brand-name"><strong>Christiano Cidade</strong><small>Advocacia</small></span>
           </a>
-          <p class="muted" style="margin-top:18px;font-size:15px">Christiano Cidade · ${OAB}<br>WhatsApp <a href="${WA}" target="_blank" rel="noopener">(43) 99120-4613</a></p>
+          <p class="muted" style="margin-top:18px;font-size:15px">Christiano Cidade · ${OAB}<br>WhatsApp <a href="${WA}" target="_blank" rel="noopener">(43) 99120-4613</a><br><a href="${MAPS}" target="_blank" rel="noopener">${ADDR.street}<br>${ADDR.district} · ${ADDR.city}/${ADDR.state} · CEP ${ADDR.cep}</a></p>
         </div>
         <div>
           <h2>Áreas de atuação</h2>
@@ -177,7 +186,9 @@ function render(meta, body) {
   body = body
     .replaceAll('{{BREADCRUMB}}', crumbs)
     .replace(/\{\{WA:([^}]+)\}\}/g, (_, msg) => wa(msg))
-    .replaceAll('{{WA}}', WA);
+    .replaceAll('{{WA}}', WA)
+    .replaceAll('{{MAPS}}', MAPS)
+    .replaceAll('{{ADDRESS}}', ADDRESS);
 
   return `<!DOCTYPE html>
 <!-- Gerado por build.mjs a partir de src/pages. Edite a fonte, não este arquivo. -->
