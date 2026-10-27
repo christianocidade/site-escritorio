@@ -7,6 +7,7 @@
 // extraído dos <details> da seção .faq) são gerados aqui.
 
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 
 // Troque pela URL definitiva quando o domínio próprio estiver no ar.
 const SITE = 'https://site-escritorio-eight.vercel.app';
@@ -58,6 +59,11 @@ const PERSON = {
   worksFor: { '@id': `${SITE}/#escritorio` },
   url: `${SITE}/#sobre`,
 };
+
+// Versão dos arquivos pelo conteúdo: muda o link quando o CSS/JS muda e o navegador não usa o cache antigo.
+const ver = (f) => createHash('md5').update(readFileSync(f)).digest('hex').slice(0, 8);
+const CSS_V = ver('assets/css/site.css');
+const JS_V = ver('assets/js/site.js');
 
 const icons = readFileSync('src/partials/icons.svg', 'utf8').trim();
 
@@ -220,7 +226,7 @@ function render(meta, body) {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/site.css" />
+  <link rel="stylesheet" href="/assets/css/site.css?v=${CSS_V}" />
 
   <script type="application/ld+json">
 ${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2)}
@@ -237,7 +243,7 @@ ${body.trim()}
 
   ${footer}
 
-  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/site.js?v=${JS_V}" defer></script>
 </body>
 </html>
 `;
